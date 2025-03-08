@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://clf54ud83nht0"]
+
+[ext_resource type="PackedScene" uid="uid://cm8mf202n4j35" path="res://scenes/level.tscn" id="1_8ykpk"]
+[ext_resource type="PackedScene" uid="uid://cd70x3de3pbl4" path="res://scenes/character.tscn" id="2_p6hsu"]
+[ext_resource type="PackedScene" uid="uid://bwpcbab8uyrno" path="res://scenes/enemy.tscn" id="3_u4fm1"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Level" parent="." instance=ExtResource("1_8ykpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71158, -1.14441e-05, -0.929812)
+
+[node name="Character" parent="." instance=ExtResource("2_p6hsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27481, 2.29168, -1.15459)
+
+[node name="Enemy" parent="." instance=ExtResource("3_u4fm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6222, 6.55153, 33.7821)

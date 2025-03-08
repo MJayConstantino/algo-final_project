@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm8mf202n4j35"]
+
+[ext_resource type="Texture2D" uid="uid://nxfbg10jg2cb" path="res://assets/godot-prototype-texture/PNG/grid_black_512x512.png" id="1_l3b42"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ecop"]
+albedo_color = Color(1, 0.501961, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw2uj"]
+albedo_color = Color(1, 0.501961, 0, 1)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ry6au"]
+albedo_color = Color(1, 0.501961, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0oiv"]
+albedo_color = Color(1, 0.501961, 0, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afb6d"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2khjw"]
+sky_material = SubResource("ProceduralSkyMaterial_afb6d")
+
+[sub_resource type="Environment" id="Environment_pbgir"]
+background_mode = 2
+sky = SubResource("Sky_2khjw")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iov0u"]
+albedo_texture = ExtResource("1_l3b42")
+
+[node name="Level" type="Node3D"]
+
+[node name="Walls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.450001, 0.600001)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 4.35, 108.2)
+use_collision = true
+size = Vector3(254.8, 8.5, 1)
+material = SubResource("StandardMaterial3D_3ecop")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 4.35, -108.4)
+use_collision = true
+size = Vector3(254.8, 8.5, 1)
+material = SubResource("StandardMaterial3D_rw2uj")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -110.5, 4.35, 1.9)
+use_collision = true
+size = Vector3(254.8, 8.5, 1)
+material = SubResource("ORMMaterial3D_ry6au")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 108, 4.35, 1.9)
+use_collision = true
+size = Vector3(254.8, 8.5, 1)
+material = SubResource("StandardMaterial3D_e0oiv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pbgir")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.642788, 0.663414, -0.383022, 2.78059e-08, 0.5, 0.866025, 0.766044, 0.55667, -0.321394, 0, 29.7, 2.3)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.750008, -0.450001, 0.549995)
+use_collision = true
+size = Vector3(215, 0.9, 215)
+material = SubResource("StandardMaterial3D_iov0u")
